@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+      }
+      .outside {
+        height: 180px;
+        width: 600px;
+        border-radius: 8px;
+        box-shadow: 0px 0px 8px rgb(185, 181, 181);
+      }
+      .inside {
+        padding: 10px;
+        display: grid;
+        grid-template-columns: 4fr 4fr;
+        grid-gap:1.4rem;
+      }
+    </style>
+    <script language="javascript" type="text/javascript">
+      var students = [
+        { id: 1, name: "tran van a", className: ".net" },
+        { id: 2, name: "tran van b", className: ".net" },
+        { id: 3, name: "tran van c", className: "angular" },
+        { id: 4, name: "tran van d", className: "angular" },
+        { id: 5, name: "tran van e", className: "java" },
+        { id: 6, name: "tran van f", className: "java" },
+        { id: 7, name: "tran van g", className: "java" },
+        { id: 8, name: "tran van h", className: "test" },
+        { id: 9, name: "tran van i", className: "test" },
+        { id: 10, name: "tran van j", className: "test" }
+      ];
+    </script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="outside">
+      <div class="inside">
+        
+        <div class="card">
+          <div class="card-header">
+            className
+          </div>
+          <div id="123"></div>
+          <div class="card-body">
+            <blockquote class="blockquote mb-0">
+              <footer class="blockquote-footer" id="demo1"></footer>
+            </blockquote>
+          </div>
+        </div>
+
+       
+        <div class="card">
+          <div class="card-header">
+            students
+          </div>
+          <div id="456"></div>
+          <div class="card-body">
+            <blockquote class="blockquote mb-0">
+              <footer class="blockquote-footer" id="demo2"></footer>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <select id="ddlViewBy" onchange="run()">
+      <option>123</option>
+      <option>456</option>
+    </select> -->
+    <!-- ------------------------------------>
+    <script>
+      function run() {
+        var e = document.getElementById("ddlViewBy");
+        var strUser = e.options[e.selectedIndex].value;
+        document.getElementById("demo1").innerHTML = strUser;
+        var text2 = "<select class='custom-select' onchange='go()' id='name'>";
+        function yourFunction(x) {
+          if (x.className === strUser) {
+            text2 +=
+              "<option value='" + x.name + "'>" + x.name + "</option>" + "<br>";
+          }
+        }
+        students.forEach(yourFunction);
+        text += "<option selected>Open this select menu</option></select>";
+        console.log(text2);
+        document.getElementById("456").innerHTML = text2;
+      }
+    </script>
+    <!-- ---------------------------------- -->
+    <script>
+      function go() {
+        var f = document.getElementById("name");
+        var nameOfStudent = f.options[f.selectedIndex].value;
+        document.getElementById("demo2").innerHTML = nameOfStudent;
+      }
+    </script>
+    <!-- ------------------------------------>
+    <script>
+      var text =
+        "<select class='custom-select' onchange='run()' id='ddlViewBy'>";
+      var language;
+      function myFunction(x) {
+        if (x.className !== language) {
+          text +=
+            "<option value='" +
+            x.className +
+            "'>" +
+            x.className +
+            "</option>" +
+            "<br>";
+        }
+        language = x.className;
+      }
+      students.forEach(myFunction);
+      text += "<option selected>Open this select menu</option></select>";
+      console.log(text);
+      document.getElementById("123").innerHTML = text;
+    </script>
+    <!-- ------------------------------------>
+    <script>
+      var text3 = "<select id='name' class='custom-select' onchange='go()' >";
+      function myFunction(x) {
+        text3 +=
+          "<option value='" + x.name + "'>" + x.name + "</option>" + "<br>";
+      }
+      students.forEach(myFunction);
+      text3 += "<option selected>Open this select menu</option></select>";
+      document.getElementById("456").innerHTML = text3;
+    </script>
+    <!-- ------------------------------------>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
